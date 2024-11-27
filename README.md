@@ -11,8 +11,8 @@ This Service is responsible for receiving prompt data from the user, as well as 
 
 ## Architecture
 
-<!--![Components](./docs/architecture/overview.puml)-->
-<!--![Sequenz](./docs/architecture/sequenz.puml)-->
+[![Components](https://tinyurl.com/2byr89os)](https://tinyurl.com/2byr89os)<!--![Components](./docs/architecture/overview.puml)-->
+[![Sequenz](https://tinyurl.com/2b8mjtvk)](https://tinyurl.com/2b8mjtvk)<!--![Sequenz](./docs/architecture/sequenz.puml)-->
 
 ## Setup
 
