@@ -1,0 +1,41 @@
+name: Process PlantUML in Markdown
+
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "**/*.md"
+      - "**/*.puml"
+  workflow_dispatch:
+
+jobs:
+  process_puml:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Check out the repository
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      # Install Node.js (to use npm)
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      # Install puml-for-markdown
+      - name: Install puml-for-markdown
+        run: npm install -g puml-for-markdown
+
+      # Run puml-for-markdown to process markdown files
+      - name: Process Markdown with PlantUML
+        run: puml-for-markdown
+
+      # Commit and push the updated Markdown files
+      - name: Commit and Push Changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Auto-Process PlantUML diagrams in Markdown"
+          branch: ${{ github.head_ref }}
