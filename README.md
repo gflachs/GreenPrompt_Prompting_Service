@@ -7,6 +7,13 @@
 
 ## Purpose
 
+This Service is responsible for receiving prompt data from the user, as well as the desired LLMs, which the user wants to test. The service will then request the specific LLMs from the LLM Registry and sends the prompts to the LLM. The generated responses and SCI-Score will then be stored in the database and returned to the user.
+
+## Architecture
+
+[![Components](https://tinyurl.com/2byr89os)](https://tinyurl.com/2byr89os)<!--![Components](./docs/architecture/overview.puml)-->
+[![Sequenz](https://tinyurl.com/2b8mjtvk)](https://tinyurl.com/2b8mjtvk)<!--![Sequenz](./docs/architecture/sequenz.puml)-->
+
 ## Setup
 
 ```sh

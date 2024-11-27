@@ -1,0 +1,27 @@
+@startuml Sequenz
+actor User as user
+boundary "UI" as UI
+control "Prompt Processor" as PP
+control "Result Processor" as RP
+participant "LLM Registry" as LLMR
+participant "LLM Wrapper" as LLMW
+database "Result Database" as RD
+
+user -> UI: Prompt dataset and desired llms
+UI -> PP: Prompt dataset and desired llms
+loop till all llms are done
+    PP -> LLMR : Get LLM
+    LLMR -> LLMW : Start LLM
+    LLMW -> LLMR : LLM ready
+    LLMR -> PP : LLM ready
+    loop for each prompt
+    PP -> LLMW : Send Prompt
+    LLMW -> LLMW : Process Prompt and measure SCI Score
+    LLMW -> RP : Send Result
+    RP -> RD : Store Result
+    end
+end
+RP -> UI : Send Results
+UI -> user : Show Results
+
+@enduml

@@ -1,0 +1,44 @@
+@startuml Overview
+
+
+:User: as User
+database "Result Database" as RD
+
+package "Greenprompt Prompting Service" as GPPS {
+component communication as com
+interface "UI" as UI
+
+com -- UI
+
+
+component dataprocessing as DP
+interface "Prompt" as PP
+interface "Result" as RP
+
+DP -- PP
+DP -- RP
+
+
+}
+
+
+
+
+
+interface "Http" as Http1
+interface "Http" as Http2
+cloud "LLM Registry" as LLMR
+LLMR -- Http1
+node "LLM Wrapper" as LLMW
+LLMW -- Http2
+
+User -( UI
+com -( PP 
+com -( RP
+
+com -left( Http2
+com -up( Http1
+DP -- RD
+
+
+@enduml
