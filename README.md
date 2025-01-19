@@ -10,8 +10,14 @@
 This Service is responsible for receiving prompt data from the user, as well as the desired LLMs, which the user wants to test. The service will then request the specific LLMs from the LLM Registry and sends the prompts to the LLM. The generated responses and SCI-Score will then be stored in the database and returned to the user.
 
 ## Architecture
+### Overview
+This diagram provides an overview of the GreenPrompt Prompting Service and its interactions with other components. The Prompting Service acts as an interface between the user and the LLM system. It receives prompts from the user via a UI, processes these prompts, and interacts with the LLM Registry to obtain appropriate LLMs. The processed results are then stored in a result database.
 
 [![Components](https://tinyurl.com/2byr89os)](https://tinyurl.com/2byr89os)<!--![Components](./docs/architecture/overview.puml)-->
+
+### Sequenz
+This sequence diagram depicts the core interactions within the GreenPrompt system, focusing on the Prompting Service. The user interacts with the UI to provide prompts and specify desired LLMs. The Prompting Service then requests and receives LLMs from the LLM Registry. Subsequently, the Prompting Service forwards each prompt to the appropriate LLM Wrapper for processing. The LLM Wrapper processes the prompt and generates a response, including an SCI Score. The resulting data is then stored in the Result Database. Finally, the Prompting Service presents the processed results back to the user.
+
 [![Sequenz](https://tinyurl.com/2b8mjtvk)](https://tinyurl.com/2b8mjtvk)<!--![Sequenz](./docs/architecture/sequenz.puml)-->
 
 ## Setup
