@@ -1,6 +1,6 @@
 requests
 pytest
 pytest-mock
-fastapi[standard]
-httpx
-paramiko
+streamlit
+pandas
+apscheduler    

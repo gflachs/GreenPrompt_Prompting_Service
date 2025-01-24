@@ -6,14 +6,14 @@ class Logger:
         if filename is None:
             # Log to console
             logging.basicConfig(
-                level=logging.DEBUG,
+                level=logging.INFO,
                 format="%(asctime)s - %(levelname)s - %(message)s"
             )
         else:
             logging.basicConfig(
                 filename=filename,  
                 filemode="w",        
-                level=logging.DEBUG,
+                level=logging.INFO,
                 format="%(asctime)s - %(levelname)s - %(message)s"
             )
 
