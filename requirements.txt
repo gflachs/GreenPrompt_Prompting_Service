@@ -1,0 +1,6 @@
+requests
+pytest
+pytest-mock
+streamlit
+pandas
+apscheduler    
