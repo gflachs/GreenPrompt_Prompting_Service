@@ -68,9 +68,9 @@ def render_new_measurement():
 
         # Aktuelle Argumente anzeigen
         st.subheader("Current Arguments")
-        st.write("**Prompting Arguments**")
+        st.text("**Prompting Arguments**")
         st.json(st.session_state.prompting_args)
-        st.write("**Deployment Arguments**")
+        st.text("**Deployment Arguments**")
         st.json(st.session_state.deployment_args)
 
         if st.button("Add Configuration"):

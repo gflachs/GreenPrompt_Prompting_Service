@@ -8,25 +8,25 @@ def show_chat(requestId):
     chat = load_request_chat(requestId)
     for message in chat:
         with st.chat_message("user"):
-            st.write(message.prompt)
+            st.text(message.prompt)
         with st.chat_message("bot"):
             st.caption(f"Sci_Score: {message.sci_score} | Time: {message.answer_time_seconds} s")
-            st.write(message.response)
+            st.text(message.response)
     
 
 @st.fragment(run_every=20)
 def render_measurement_requests(measurement):
     load_measurement_requests(measurement.id)
     for request in st.session_state.current_measurement_requests:
-        st.write("---")
+        st.text("---")
         st.caption(f"Request ID: {request.id}")
-        st.write(f"Status: {request.status}")
-        st.write(f"Config:")
+        st.text(f"Status: {request.status}")
+        st.text(f"Config:")
         st.json(request.llm_config.model_dump_json())
-        st.write(f"Address: {request.address}")
+        st.text(f"Address: {request.address}")
         if st.button(f"Show Chat", key=f"show_chat_{request.id}"):
             show_chat(request.id)
-        st.write("---")
+        st.text("---")
             
 
 def render_view_measurements():
@@ -36,7 +36,7 @@ def render_view_measurements():
         st.subheader(f"Measurement ID: {measurement.id}")
         if measurement.status == "finished":            
             st.download_button(label="Download Results", data=download_measurement_results(measurement.id), file_name=f"measurement_{measurement.id}.csv", mime="text/csv")
-        st.write(f"Status: {measurement.status}")
+        st.text(f"Status: {measurement.status}")
         if st.button(f"View Details", key=f"view_measurement_{measurement.id}"):
             render_measurement_requests(measurement)
             

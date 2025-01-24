@@ -36,12 +36,12 @@ def render_dashboard():
     
 
     st.subheader("Overview")
-    st.write(f"Queued Measurements: {len(st.session_state.queued_measurements)}")
-    st.write(f"Prompting Measurements: {len(st.session_state.prompting_measurements)}")
-    st.write(f"Completed Measurements: {len(st.session_state.completed_measurements)}")
+    st.text(f"Queued Measurements: {len(st.session_state.queued_measurements)}")
+    st.text(f"Prompting Measurements: {len(st.session_state.prompting_measurements)}")
+    st.text(f"Completed Measurements: {len(st.session_state.completed_measurements)}")
 
     # Navigation zu anderen Seiten
-    st.write("---")
+    st.text("---")
     if st.button("Create New Measurement", key="create_new_measurement"):
         st.session_state.current_page = "New Measurement"
         st.rerun()
